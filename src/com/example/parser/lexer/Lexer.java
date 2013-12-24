@@ -46,9 +46,9 @@ public class Lexer {
           if (Character.isDigit(currentChar)) {
             String currentNumber = Character.toString(currentChar);
             boolean separatorAdded = false;
-            while ((position + 1 < input.length())  ) {
+            while ((position + 1 < input.length())) {
               char nextChar = input.charAt(position + 1);
-              if (Character.isDigit(nextChar) ) {
+              if (Character.isDigit(nextChar)) {
                 position++;
                 currentNumber += nextChar;
               } else {
@@ -56,6 +56,8 @@ public class Lexer {
                   position++;
                   if (separatorAdded) {
                     throwException("Second separator in number", position);
+                  } else if (!Character.isDigit(input.charAt(position + 1))) {
+                    throwException("Number can not end with dot ", position);
                   } else {
                     separatorAdded = true;
                     currentNumber += nextChar;
