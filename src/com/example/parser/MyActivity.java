@@ -9,7 +9,7 @@ import com.example.parser.parser.Parser;
 
 public class MyActivity extends Activity {
 
-  public static final String input = "(( 2 + 3 )*4)";
+  public static final String input = "((3.))";
 
   @Override
   public void onCreate(Bundle savedInstanceState) {
